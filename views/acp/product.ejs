@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data base</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"></script>
+    <link rel="stylesheet" href="http://localhost:8000/styles/main.css">
+    <!-- <link rel="stylesheet" href="/styles/main.css"> -->
+</head>
+<body>
+    <h2>Create Product:</h2>
+    
+    <form name="addProduct" class="productName" >
+        <label>Create new Product:</label>
+        <br>
+        <label>Product name</label>
+        <input name="name" placeholder="enter name of product...">
+        <label>Choose category</label>
+        <select name="selectCategory" class="selectCategory" multiple size="3"></select>
+        <label>Price</label>
+        <input name="price" placeholder="enter price...">
+
+        <input type="file" name="image">
+         
+        <button type="submit">Save</button>
+    </form>
+    <div class="inform hidden">Product was succsessfull created</div>
+
+
+    <form name="addCategory" class="categoryName" >
+        <label>Add new category</label>
+        <input name="name" placeholder="enter category name...">
+
+        <button type="submit">Save</button>
+    </form>
+    <div class="informCategory hidden">Category was succsessfull created</div>
+
+
+    <!-- <form name="addGenre" class="genre">
+        <label>Add new Ganre of book</label>
+        <input type="text" name="name" placeholder="enter genre name...">
+        
+        <button type="submit">Save</button>
+    </form>
+    <div class="informGenre hidden">Genre succsessfull add</div> -->
+    
+
+    <script src="/js/acp/main.js"></script>
+</body>
+</html>

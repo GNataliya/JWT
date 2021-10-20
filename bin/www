@@ -1,0 +1,14 @@
+#!/usr/bin/env node
+
+const webRunner = require('./runners/web');
+const dbRunner = require('./runners/db');
+
+
+const callChain = async () => {
+    await dbRunner();
+    await webRunner();
+};
+
+callChain();
+
+

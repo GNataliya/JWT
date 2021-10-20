@@ -1,0 +1,58 @@
+h2 {
+    text-align: center;
+}
+
+form {
+    width: 35%;
+    margin: 10px auto;
+    padding: 2%;
+    border: 1px solid rgb(99, 98, 98)
+}
+
+input, label {
+    margin: 1% 3% 1%;
+    width: 90%;
+}
+
+select {
+    margin: 1% 3% 1%;
+    width: 92.5%;
+    
+}
+
+label {
+    display: block;
+    text-align: left;
+}
+
+button{
+    background-color: #e2d9f1;
+    display: flex;
+    justify-content: center;
+    width: 50%;
+    height: 25px;
+    margin-top: 2%;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 3px;
+}
+
+ .hidden {
+    display: none;
+}
+
+/*.clientResult, .inform, .findInform, .changemsg {
+    text-align: center
+}
+
+th, td {
+    border: 1px solid rgb(99, 98, 98);
+    width: 45%;
+}
+
+.bookList {
+    width: 50%;
+    
+} */
+

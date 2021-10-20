@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"></script>
+    <link rel="stylesheet" href="http://localhost:8000/styles/login.css">
+</head>
+<body>
+
+    <h1>My site name</h1>
+
+
+    <form name="auth" class="auth">
+        <label>EMAIL</label>
+        <input type="email" name="login">
+        <label>PASSWORD</label>
+        <input type="password" name="pwd">
+        <button type="submit">Sign In</button>
+    </form>
+
+    <button class="signUpFormBtn">Sign Up</button>
+
+    <form name="signup" class="signup hidden">
+        <label>NAME</label>
+        <input type="text" name="name">
+        <label>EMAIL</label>
+        <input type="email" name="login">
+        <label>PASSWORD</label>
+        <input type="password" name="pwd">
+        <button type="submit">Sign Up</button>
+    </form>
+
+    <div class="logout hidden">
+        <button>Sign out</button>
+    </div>
+
+</body>
+<script src="/js/login.js"></script>
+</html>
