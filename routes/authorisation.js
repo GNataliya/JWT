@@ -27,21 +27,22 @@ router.post('/login', upload.none(), async (req, res) => {
     res.json({ status: 'ok', user: profile, accessToken });
 });
 
-// // for checking user id on every page and get user id
+// // for checking user key on every page and auth user
 router.post('/checkUserToken', upload.none(), async (req, res) => {
     
     const accessToken = req.body;    // get user id in session
     console.log('req.body', req.body)
-    console.log('checkAndDecode', accessToken)
-    // if there isn't user id in session
+    console.log('checkAndDecode', accessToken, typeof(accessToken))
+    
+    // if there isn't user token
     // if(!accessToken){                           
     //     res.json({ status: 'unauthorisate'});
     //     return;
     // }
 
-    const result = await authCtrl.checkAndDecode(accessToken); // get profile from db by id session    
-    console.log('12 - result', result)
-    // res.json({ status: 'ok', payload: result })
+    const checkResult = await authCtrl.checkAndDecode(accessToken); // check privateKey by PublicKey    
+    console.log('12 - result', checkResult)
+    // res.json({ status: 'ok', payload: checkResult })
     
 });
 
