@@ -15,11 +15,16 @@ const createUser = async (name, login, pwd) => {    // name
         }
     })
     // console.log('3 - doc', doc)
+    
+    const profile = {
+        id: doc._id,
+        name: doc.name
+    };
 
-    const accessToken = await createAccessToken(doc);
+    const accessToken = await createAccessToken(profile);
     // console.log('9 - accessToken', accessToken)
-    return {status: 'ok', payload: { doc, accessToken }};
-    // return doc;
+    return {status: 'ok', payload: { profile, accessToken }};
+    // return profile;
 }
 
 // check there is user email in db
@@ -57,15 +62,17 @@ const login = async (login, pwd) => {
     };
 
     // return {status: 'ok', payload: { profile }};
-    const accessToken = await createAccessToken({profile});
-    return {status: 'ok', payload: { profile, accessToken }};
+    const accessToken = await createAccessToken(profile);
+    return {status: 'ok', payload: profile, accessToken };
 };
 
 // creste public key and check user's private key 
 const checkAndDecode = async (accessToken) => {
     console.log('13 - accessToken', accessToken, typeof(accessToken))
+    // const token = await JSON.stringify(accessToken);
+    // console.log('13-a - token', token)
     const pubKey = await getPublicKey();
-    console.log('14 - pubKey', pubKey)
+    // console.log('14 - pubKey', pubKey)
     const result = await jwt.verify(accessToken, pubKey, { algorithms: ['RS256'] });
     console.log('15 - result', result)
     return result;
@@ -77,7 +84,7 @@ const createAccessToken = async (payload) => {
     const privKey = await getPrivateKey();
     // console.log('7 - privKey', privKey);
     const token = await jwt.sign(
-        {payload},
+        payload,
         privKey,
         { algorithm: 'RS256' },
     );
@@ -85,12 +92,11 @@ const createAccessToken = async (payload) => {
     return token;
 }
 
+
 // //get user profile in db by ID
 // const getProfile = async (id) => {
 //     const doc = await userModel.findOne({_id: id});
-//     console.log('docByIs', doc)
-    
-    
+//     console.log('docByIs', doc)    
 //     return { status: 'ok', payload: { profile: doc }};
 // };
 
